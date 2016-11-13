@@ -1,0 +1,69 @@
+小宝的个人博客开发
+   一。实现功能：
+   登录注册（注册时会），30天自动登录，查看博文，回复博文，留言板（留言，反馈bug）；
+  
+   二。用到的知识和工具包：
+   1.bootstrap：前端开发框架
+   2.dbutils
+   3.c3p0：开源连接池
+   4.mail：邮件发送插件
+   5.log4j：日志记录
+   6.beanutils：封装数据（获取页面值然后组织为一个map）
+   
+   包结构：
+   com.lxb.web---web层：方所有servlet
+   com.lxb.util---工具包：放所有工具类
+   com.lxb.dao---数据库层：只负责增删改查，不涉及任何逻辑业务
+   com.lxb.domain---JavaBean层，实现数据临时存储，传输的作用
+   com.lxb.service---服务层：实现逻辑业务处理
+   com.lxb.annotation--- 注解类：实现数据库的事务开关
+   com.lxb.factory---工厂类：实现层与层之间的解耦操作
+   com.lxb.listener---监听类：查看所有已登录用户，踢人等操作；
+   
+   数据库表：
+   create database myblog;
+   use myblog;
+   create user(
+   	int id primary key auto_increament,
+   	varchar(50) username not null,
+   	varchar(50) password not null,
+   	varchar(50) email not null,
+   	datetime registtime,
+   	int role not null,/*0为用户，1为管理员*/
+   	varchar(50) registip not null,  
+   	varchar(20) activecode
+   );
+   
+   三。开发步骤：
+   1.开发主页index.jsp
+            把主页分为几个部分：top.jsp,header.jsp,footer.jsp;
+   2.实现登录功能：
+      login.jsp  ---- 提供登录表单，  让用户登录，增加验证码；
+      LoginServlet  ---  封装用户提交的登录数据并校验。
+      
+   3.实现注册功能
+      regist.jsp  --- 提供注册表单，允许用户注册，并实现前台校验所有字段不为空，
+      RegstServlet  ---  封装用户填写的注册数据并检验，然后发送是激活邮件；
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      

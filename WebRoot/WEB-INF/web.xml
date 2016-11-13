@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.0" 
+	xmlns="http://java.sun.com/xml/ns/javaee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+	
+  <display-name>大爱我小宝哥的博客</display-name>
+  
+  <!-- 全站初始化参数配置开始 -->
+  <context-param>
+	<description>全站编码配置</description>
+	<param-name>encode</param-name>
+	<param-value>utf-8</param-value>
+  </context-param>
+  <!-- 全站初始化参数配置结束 -->
+  
+  <!-- 错误页面配置开始 -->
+  <!-- 错误页面配置结束 -->
+  
+  <!-- 监听器配置开始 -->
+  <listener>
+    <display-name>新建存储上线用户的LinkedMap</display-name>
+    <listener-class>com.lxb.listener.UserListener</listener-class>
+  </listener>
+  <!-- 监听器配置结束 -->
+  
+  <!-- 过滤器配置开始 -->
+  <filter>
+    <description>自动登录过滤器</description>
+    <filter-name>AutologinFilter</filter-name>
+    <filter-class>com.lxb.filter.AutologinFilter</filter-class>
+  </filter>
+  <filter>
+    <filter-name>EncodingFilter</filter-name>
+    <filter-class>com.lxb.filter.EncodingFilter</filter-class>
+  </filter>	
+  
+  <filter-mapping>
+    <filter-name>AutologinFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>EncodingFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  <!-- 过滤器配置结束 -->
+  
+  <!-- Servlet配置开始 -->
+  <servlet>
+    <servlet-name>ValiImg</servlet-name>
+    <servlet-class>com.lxb.web.ValiImg</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>LoginServlet</servlet-name>
+    <servlet-class>com.lxb.web.LoginServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>LogoutServlet</servlet-name>
+    <servlet-class>com.lxb.web.LogoutServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>RegistServlet</servlet-name>
+    <servlet-class>com.lxb.web.RegistServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>SelectMsgServlet</servlet-name>
+    <servlet-class>com.lxb.web.SelectMsgServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>AddMsgServlet</servlet-name>
+    <servlet-class>com.lxb.web.AddMsgServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>NewArtServlet</servlet-name>
+    <servlet-class>com.lxb.web.NewArtServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>SelectArtServlet</servlet-name>
+    <servlet-class>com.lxb.web.SelectArtServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>DetailArtServlet</servlet-name>
+    <servlet-class>com.lxb.web.DetailArtServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>AddReplayServlet</servlet-name>
+    <servlet-class>com.lxb.web.AddReplayServlet</servlet-class>
+  </servlet>
+
+
+
+
+
+
+
+
+  <servlet-mapping>
+    <servlet-name>ValiImg</servlet-name>
+    <url-pattern>/servlet/ValiImg</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>LoginServlet</servlet-name>
+    <url-pattern>/servlet/LoginServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>LogoutServlet</servlet-name>
+    <url-pattern>/servlet/LogoutServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>RegistServlet</servlet-name>
+    <url-pattern>/servlet/RegistServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SelectMsgServlet</servlet-name>
+    <url-pattern>/servlet/SelectMsgServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AddMsgServlet</servlet-name>
+    <url-pattern>/servlet/AddMsgServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>NewArtServlet</servlet-name>
+    <url-pattern>/servlet/NewArtServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SelectArtServlet</servlet-name>
+    <url-pattern>/servlet/SelectArtServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DetailArtServlet</servlet-name>
+    <url-pattern>/servlet/DetailArtServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AddReplayServlet</servlet-name>
+    <url-pattern>/servlet/AddReplayServlet</url-pattern>
+  </servlet-mapping>	
+  <!-- Servlet配置结束 -->
+  
+  <!-- 欢迎页面配置开始 -->
+  <welcome-file-list>
+    <welcome-file>/user/index.jsp</welcome-file>
+  </welcome-file-list>
+  <!-- 欢迎页面配置结束 -->
+</web-app>
